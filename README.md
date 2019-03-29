@@ -5,7 +5,7 @@ This browser extension helps you to work easier, while searching for papers in t
 
 ## Automatic login on the following websites:
 - Springer Link
-- IIIEXplore
+- IEEEXplore xD
 - ACM Digital Library
 - Statista
 
