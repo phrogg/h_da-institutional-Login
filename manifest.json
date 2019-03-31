@@ -19,7 +19,7 @@
 
   "content_scripts": [
     {
-      "matches": ["*://*.sso.h-da.de/*","*://*.springer.com/*","*://*.statista.com/*","*://*.dl.acm.org/*","*://*.ieeexplore.ieee.org/*","*://*.ebscohost.com/*"],
+      "matches": ["*://*.sso.h-da.de/*","*://*.springer.com/*","*://*.statista.com/*","*://*.dl.acm.org/*","*://*.ieeexplore.ieee.org/*","*://*.ebscohost.com/*","*://*.emeraldinsight.com/*"],
       "js": ["injectme.js"]
     }
   ],
