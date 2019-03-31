@@ -8,7 +8,7 @@ This browser extension helps you to work easier, while searching for papers in t
 - IEEEXplore xD
 - ACM Digital Library
 - Statista
+- emeraldinsight
 
 ## Currently working on the following websites:
 - Elsevier (ScienceDirect)
-- emeraldinsight

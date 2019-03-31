@@ -44,6 +44,10 @@ if(window.location.href.includes("link.springer.com/athens-shibboleth-login")){
 	alert("This site is not compatible yet");
 	//__doPostBack('_ctl0$MainContent$lnkViewAllLink','');
 	//__doPostBack('_ctl0$MainContent$rptFederations$_ctl56$rptProviders$_ctl32$lnkIDP','');
+} else if(window.location.href.includes("emeraldinsight.com/action/ssostart")){
+	document.getElementById("federationSelect").value="German Higher Education (DFN-AAI)";
+	selectFed();
+	window.location.href = "https://www.emeraldinsight.com/action/ssostart?idp=https%3A%2F%2Fsso.h-da.de%2Fidp%2Fshibboleth&redirectUri=%2Fdoi%2Fabs%2F10.1108%2F10662240710737022";
 } else if(window.location.href.includes("sso.h-da.de")){
 	//get username if any
 	var user = document.getElementById("username");
