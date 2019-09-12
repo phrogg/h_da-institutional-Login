@@ -14,5 +14,5 @@ This browser extension helps you to work easier, while searching for papers in t
 - Elsevier (ScienceDirect)
 
 ## Download
-<a href="https://addons.mozilla.org/en-US/firefox/addon/h_da-institutional-login/" target="_BLANK"><img src="https://www.iconfinder.com/icons/4490617/download/png/128" alt="Get it on Firefox"/></a>
+<a href="https://addons.mozilla.org/en-US/firefox/addon/h_da-institutional-login" target="_BLANK"><img src="https://www.iconfinder.com/icons/4490617/download/png/128" alt="Get it on Firefox"/></a>
 <a href="https://chrome.google.com/webstore/detail/hda-institutional-login/dhgnbcfiilddcjgbkhmkcbcofdkmanif" target="_BLANK"><img src="https://www.iconfinder.com/icons/4490610/download/png/128" alt="Get it on Chrome"/></a>
