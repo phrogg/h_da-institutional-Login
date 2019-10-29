@@ -4,14 +4,7 @@
   "description": "Logging into Shibboleth via the h_da account was never so easy!",
   "version": "1.9",
   "author": "Phil Roggenbuck <ceo@roggstar.eu>",
-  
-  "applications": {
-    "gecko": {
-      "id": "h_daLogin@roggstar.eu",
-      "strict_min_version": "57.0"
-	}
-  },
-  
+ 
   "icons": {
     "64": "icons/page-64.png",
     "128": "icons/page-128.png"
