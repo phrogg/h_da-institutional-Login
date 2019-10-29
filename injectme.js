@@ -37,7 +37,8 @@ if(window.location.href.includes("link.springer.com/athens-shibboleth-login")){
 	document.getElementById("selecterForm").submit();
 	
 } else if(window.location.href.includes("dl.acm.org/signin.cfm")){
-	goHere("https://dl.acm.org/Shibboleth.sso/Login?entityID=https://sso.h-da.de/idp/shibboleth");
+	//setTimeout(function(){goHere("https://dl.acm.org/Shibboleth.sso/Login?entityID=https://sso.h-da.de/idp/shibboleth");}, 1000);
+	window.location.href = "https://dl.acm.org/Shibboleth.sso/Login?entityID=https://sso.h-da.de/idp/shibboleth";
 } else if(window.location.href.includes("ieeexplore.ieee.org/servlet/wayf.jsp")){
 	window.location.href = '/servlet/wayf.jsp?entityId=https://sso.h-da.de/idp/shibboleth&url=https%3A%2F%2Fieeexplore.ieee.org%2FXplore%2Fhome.jsp';
 } else if(window.location.href.includes("http://search.ebscohost.com/webauth/Presentation/Views/Web/ShibWAYFForm.aspx?entityID=http%3A%2F%2Fshibboleth.ebscohost.com&return=https%3A%2F%2Fshibboleth.ebscohost.com%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1%26target%3Dhttps%253A%252F%252Fshibboleth.ebscohost.com%252FShibAgent.aspx%253Fshib_returl%253Dhttps%25253a%25252f%25252fsearch.ebscohost.com%25252flogin.aspx%25253fauthtype%25253dshib%2526IdpId%253D")){
