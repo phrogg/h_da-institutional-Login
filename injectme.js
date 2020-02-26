@@ -59,9 +59,8 @@ if(url.includes("link.springer.com/athens-shibboleth-login")){
 	//setTimeout(function(){goHere("https://dl.acm.org/Shibboleth.sso/Login?entityID=https://sso.h-da.de/idp/shibboleth");}, 1000);
 	window.location.href = "https://dl.acm.org/Shibboleth.sso/Login?entityID=https://sso.h-da.de/idp/shibboleth";
 } else if(url.includes("dl.acm.org/action/showLogin")){
-	// keep the redirect
-	var redirect = url.split("?");
-	window.location.href = "http://iam.atypon.com/action/ssostart?idp=https%3A%2F%2Fsso.h-da.de%2Fidp%2Fshibboleth&"+redirect;
+	document.getElementById("pane-0552177a-9137-4ca8-90d3-10b23a0c57c721con").click();
+	FindByAttributeValue("innerHTML","Hochschule Darmstadt","span").parentNode.click();
 } else if(url.includes("ieeexplore.ieee.org/servlet/wayf.jsp")){
 	window.location.href = '/servlet/wayf.jsp?entityId=https://sso.h-da.de/idp/shibboleth&url=https%3A%2F%2Fieeexplore.ieee.org%2FXplore%2Fhome.jsp';
 } else if(url.includes("search.ebscohost.com/webauth/Presentation/Views/Web/ShibWAYFForm.aspx")){
