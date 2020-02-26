@@ -1,23 +1,42 @@
-//go to the correct site
-if(window.location.href.includes("www.statista.com/login/campus/")){
-	window.location.href = "https://de.statista.com/login/campus/";
+// loadup stuff
+// vars
+var url = window.location.href;
+// functions
+/* Find an element on the webpage */ 
+function FindByAttributeValue(attribute, value, element_type) { 
+	element_type = element_type || "*"; 
+	var All = document.getElementsByTagName(element_type); 
+	for (var i = 0; i < All.length; i++) { 
+		if (attribute == "innerHTML" && All[i].innerHTML == value) {
+			return All[i];
+		}
+		if (All[i].getAttribute(attribute) == value) {
+			return All[i];
+		}
+	} 
+	} 
+
+// actual logic
+// go to the correct site
+if(url.includes("www.statista.com/login/campus/")){
+	url = "https://de.statista.com/login/campus/";
 }
-//login
-if(window.location.href.includes("link.springer.com/athens-shibboleth-login")){
+// login
+if(url.includes("link.springer.com/athens-shibboleth-login")){
 	document.getElementById("shibboleth-institutions").value="https://sso.h-da.de/idp/shibboleth";
 	document.getElementById("shibboleth_institutions_chosen").getElementsByTagName("span")[0].innerHTML = "Hochschule Darmstadt";
 	document.getElementById("shibboleth-login-submit").click();
-} else if(window.location.href.includes("de.statista.com/login/campus/")){
+} else if(url.includes("de.statista.com/login/campus/")){
 	document.getElementById("loginShibboleth_shibbolethLink").value="https://sso.h-da.de/idp/shibboleth";
 	document.getElementById("loginShibboleth_submitLoginCampus").click();
-} else if(window.location.href.includes("id.elsevier.com/as/authorization.oauth2")){
-	//get Code
+} else if(url.includes("id.elsevier.com/as/authorization.oauth2")){
+	// get the code
 	var signinform = document.getElementsByClassName("els-signin-form")[0];
 	var res = signinform.getAttribute("action").replace("/as/","");
 	res = res.replace("https://id.elsevier.com","");
 	res = res.replace("/resume/as/authorization.ping","");
 	
-	//we need to create a form here
+	// we need to create a form here
 	var f = document.createElement("form");
 	f.setAttribute('method',"post");
 	f.setAttribute('id',"selecterForm");
@@ -36,30 +55,41 @@ if(window.location.href.includes("link.springer.com/athens-shibboleth-login")){
 	document.getElementsByTagName('body')[0].appendChild(f);
 	document.getElementById("selecterForm").submit();
 	
-} else if(window.location.href.includes("dl.acm.org/signin.cfm")){
+} else if(url.includes("dl.acm.org/signin.cfm")){
 	//setTimeout(function(){goHere("https://dl.acm.org/Shibboleth.sso/Login?entityID=https://sso.h-da.de/idp/shibboleth");}, 1000);
 	window.location.href = "https://dl.acm.org/Shibboleth.sso/Login?entityID=https://sso.h-da.de/idp/shibboleth";
-} else if(window.location.href.includes("ieeexplore.ieee.org/servlet/wayf.jsp")){
+} else if(url.includes("dl.acm.org/action/showLogin")){
+	// keep the redirect
+	var redirect = url.split("?");
+	window.location.href = "http://iam.atypon.com/action/ssostart?idp=https%3A%2F%2Fsso.h-da.de%2Fidp%2Fshibboleth&"+redirect;
+} else if(url.includes("ieeexplore.ieee.org/servlet/wayf.jsp")){
 	window.location.href = '/servlet/wayf.jsp?entityId=https://sso.h-da.de/idp/shibboleth&url=https%3A%2F%2Fieeexplore.ieee.org%2FXplore%2Fhome.jsp';
-} else if(window.location.href.includes("http://search.ebscohost.com/webauth/Presentation/Views/Web/ShibWAYFForm.aspx?entityID=http%3A%2F%2Fshibboleth.ebscohost.com&return=https%3A%2F%2Fshibboleth.ebscohost.com%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1%26target%3Dhttps%253A%252F%252Fshibboleth.ebscohost.com%252FShibAgent.aspx%253Fshib_returl%253Dhttps%25253a%25252f%25252fsearch.ebscohost.com%25252flogin.aspx%25253fauthtype%25253dshib%2526IdpId%253D")){
-	alert("This site is not compatible yet");
-	//__doPostBack('_ctl0$MainContent$lnkViewAllLink','');
-	//__doPostBack('_ctl0$MainContent$rptFederations$_ctl56$rptProviders$_ctl32$lnkIDP','');
-} else if(window.location.href.includes("emeraldinsight.com/action/ssostart")){
-	document.getElementById("federationSelect").value="German Higher Education (DFN-AAI)";
-	selectFed();
-	window.location.href = "https://www.emeraldinsight.com/action/ssostart?idp=https%3A%2F%2Fsso.h-da.de%2Fidp%2Fshibboleth&redirectUri=%2Fdoi%2Fabs%2F10.1108%2F10662240710737022";
-} else if(window.location.href.includes("sso.h-da.de")){
+} else if(url.includes("search.ebscohost.com/webauth/Presentation/Views/Web/ShibWAYFForm.aspx")){
+	// I don't like this website TODO: later... 
+	//document.getElementById("_ctl0_MainContent_ddlFederations").value = "23";
+	//window.location.href = "javascript:__doPostBack('_ctl0$MainContent$rptFederations$_ctl0$rptProviders$_ctl32$lnkIDP','')";
+} else if(url.includes("connect.liblynx.com/wayf")){
+	//window.location.href = url+"?iam=2100125_7f4fbba4ae4b9d6474b16ef0c196a08f";
+	document.getElementById("findinstitution").value = "darmstadt";
+	document.getElementsByTagName("form")[0].submit();
+	FindByAttributeValue('innerHTML','HOCHSCHULE DARMSTADT UNIVERSITY OF APPLIED SCIENCES','a').click();
+	FindByAttributeValue('innerHTML','Login','a').click();
+} else if(url.includes("sso.h-da.de")){
 	//get username if any
 	var user = document.getElementById("username");
+
 	chrome.storage.sync.get(null, function (items) {
-		user.value = items.username;
 		if(items.donotcache == true){
 			document.getElementById("donotcache").checked = true;
 		}
 		if(items._shib_idp_revokeConsent == true){
 			document.getElementById("_shib_idp_revokeConsent").checked = true;
 		}
-		document.getElementById("password").select();
+		if(items.username != undefined){
+			user.value = items.username;
+			document.getElementById("password").select();
+		} else {
+			document.getElementById("username").select();
+		}
 	});
 }
