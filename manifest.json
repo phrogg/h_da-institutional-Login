@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "h_da institutional Login",
   "description": "Logging into Shibboleth via the h_da account was never so easy!",
-  "version": "1.9",
+  "version": "2",
   "author": "Phil Roggenbuck <me@phrogg.de>",
  
   "icons": {
